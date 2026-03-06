@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Rizwan Go Rides</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Segoe UI;
+background:#f2f2f2;
+color:#222;
+}
+
+/* LANGUAGE GATE */
+
+#gate{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0, 0, 80, 0.9);
+color:white;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:20px;
+}
+#gate h1{
+font-size:42px;
+margin-bottom:10px;
+}
+
+#gate p{
+font-size:18px;
+opacity:0.85;
+}
+
+.langBtn{
+padding:14px 28px;
+margin:12px;
+font-size:18px;
+border:none;
+border-radius:6px;
+cursor:pointer;
+background:#2563eb;
+color:white;
+transition:0.3s;
+}
+
+.langBtn:hover{
+background:#1d4ed8;
+}
+
+/* SITE */
+
+#site{
+display:none;
+}
+
+/* HEADER */
+
+header{
+background:#111;
+color:white;
+padding:18px;
+text-align:center;
+font-size:26px;
+font-weight:bold;
+}
+
+/* HERO */
+
+.hero{
+text-align:center;
+padding:40px 20px;
+background:#e5e7eb;
+}
+
+.hero h2{
+font-size:30px;
+}
+
+.hero p{
+color:#444;
+font-size:18px;
+}
+
+/* PROMISES */
+
+.promises{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:20px;
+padding:40px 20px;
+}
+
+.promise{
+background:white;
+padding:20px;
+width:220px;
+border-radius:10px;
+box-shadow:0 6px 15px rgba(0,0,0,0.1);
+text-align:center;
+}
+
+.promise h3{
+color:#2563eb;
+}
+
+/* BOOKING */
+
+.booking{
+max-width:500px;
+margin:auto;
+background:white;
+padding:30px;
+border-radius:10px;
+box-shadow:0 10px 20px rgba(0,0,0,0.15);
+}
+
+.booking h3{
+text-align:center;
+}
+
+.booking input{
+width:100%;
+padding:12px;
+margin:8px 0;
+border-radius:6px;
+border:1px solid #ccc;
+}
+
+.booking button{
+width:100%;
+padding:14px;
+margin-top:10px;
+background:#2563eb;
+border:none;
+border-radius:6px;
+color:white;
+font-size:16px;
+cursor:pointer;
+}
+
+.booking button:hover{
+background:#1d4ed8;
+}
+
+/* WAIT SCREEN */
+
+#wait{
+display:none;
+text-align:center;
+padding:50px;
+font-size:20px;
+}
+
+/* REVIEWS */
+
+.reviews{
+padding:40px 20px;
+text-align:center;
+}
+
+.reviewBox{
+background:white;
+margin:15px auto;
+max-width:450px;
+padding:20px;
+border-radius:10px;
+box-shadow:0 5px 12px rgba(0,0,0,0.1);
+}
+
+/* FOOTER */
+
+footer{
+background:#111;
+color:white;
+text-align:center;
+padding:25px;
+margin-top:40px;
+}
+
+/* WHATSAPP FLOAT */
+
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+color:white;
+font-size:26px;
+padding:15px;
+border-radius:50%;
+text-decoration:none;
+box-shadow:0 5px 15px rgba(0,0,0,0.3);
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- LANGUAGE GATE -->
+
+<div id="gate">
+
+<h1>Rizwan Go Rides</h1>
+
+<p>Safe • Comfortable • Pre-Booked Taxi Service in Prayagraj</p>
+
+<p><strong>CHOOSE A LANGUAGE TO ACCESS THE WEBSITE</strong></p>
+
+<button class="langBtn" onclick="enterSite('en')">English</button>
+
+<button class="langBtn" onclick="enterSite('hi')">हिन्दी</button>
+
+</div>
+
+<!-- SITE -->
+
+<div id="site">
+
+<header>Rizwan Go Rides</header>
+
+<section class="hero">
+
+<h2 id="tagline">Comfortable & Reliable Taxi Service</h2>
+
+<p id="subtag">Pre-book your ride easily in just a few seconds</p>
+
+</section>
+
+<section class="promises">
+
+<div class="promise">
+<h3>Easy Booking</h3>
+<p>Book your ride quickly in seconds.</p>
+</div>
+
+<div class="promise">
+<h3>Safe Travel</h3>
+<p>Trusted and reliable taxi service.</p>
+</div>
+
+<div class="promise">
+<h3>On-Time Pickup</h3>
+<p>We respect your time and schedule.</p>
+</div>
+
+</section>
+
+<section class="booking">
+
+<h3 id="bookTitle">Book Your Ride</h3>
+
+<input id="name" placeholder="Your Name">
+
+<input id="pickup" placeholder="Pickup Location">
+
+<input id="destination" placeholder="Destination">
+
+<input type="date" id="date">
+
+<input type="time" id="time">
+
+<button onclick="bookRide()" id="btn">Send Booking Request</button>
+
+</section>
+
+<div id="wait">
+
+<p id="waitText">Your request has been sent. Please wait while the driver reviews your booking.</p>
+
+</div>
+
+<section class="reviews">
+
+<h2>Customer Reviews</h2>
+
+<div class="reviewBox">
+⭐ ⭐ ⭐ ⭐ ⭐  
+<p>Very reliable taxi service. Driver arrived on time.</p>
+</div>
+
+<div class="reviewBox">
+⭐ ⭐ ⭐ ⭐ ⭐  
+<p>Comfortable ride and smooth booking process.</p>
+</div>
+
+</section>
+
+<footer>
+
+<p>Contact: Mohd Rizwan</p>
+<p>Phone: 97945 80681</p>
+<p>Email: rizwangorides@gmail.com</p>
+<p>Prayagraj, Uttar Pradesh, India</p>
+
+</footer>
+
+</div>
+
+<a class="whatsapp" href="https://wa.me/918826618273">💬</a>
+
+<script>
+
+function enterSite(l){
+
+document.getElementById("gate").style.display="none"
+document.getElementById("site").style.display="block"
+
+if(l=="hi"){
+
+document.getElementById("tagline").innerText="आरामदायक और भरोसेमंद टैक्सी सेवा"
+document.getElementById("subtag").innerText="कुछ ही सेकंड में अपनी राइड प्री-बुक करें"
+document.getElementById("bookTitle").innerText="अपनी राइड बुक करें"
+document.getElementById("btn").innerText="बुकिंग भेजें"
+document.getElementById("waitText").innerText="आपका अनुरोध भेज दिया गया है। कृपया प्रतीक्षा करें।"
+
+}
+
+}
+
+function bookRide(){
+
+let name=document.getElementById("name").value
+let pickup=document.getElementById("pickup").value
+let destination=document.getElementById("destination").value
+let date=document.getElementById("date").value
+let time=document.getElementById("time").value
+
+let msg=
+"New Booking:%0A"+
+"Name: "+name+"%0A"+
+"Pickup: "+pickup+"%0A"+
+"Destination: "+destination+"%0A"+
+"Date: "+date+"%0A"+
+"Time: "+time
+
+document.querySelector(".booking").style.display="none"
+document.getElementById("wait").style.display="block"
+
+setTimeout(function(){
+
+window.location.href="https://wa.me/918826618273?text="+msg
+
+},2000)
+
+}
+
+</script>
+
+</body>
+</html>
