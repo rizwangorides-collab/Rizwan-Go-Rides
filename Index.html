@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rizwan Go Rides</title>
+
+<style>
+
+body{
+font-family: Arial;
+margin:0;
+background:#f5f5f5;
+text-align:center;
+}
+
+header{
+background:black;
+color:white;
+padding:20px;
+}
+
+button{
+padding:12px 25px;
+margin:10px;
+font-size:16px;
+cursor:pointer;
+border:none;
+background:#ffc107;
+}
+
+.container{
+padding:30px;
+}
+
+form{
+max-width:400px;
+margin:auto;
+text-align:left;
+}
+
+input{
+width:100%;
+padding:10px;
+margin:8px 0;
+}
+
+.hidden{
+display:none;
+}
+
+footer{
+background:#222;
+color:white;
+padding:15px;
+margin-top:40px;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>WELCOME TO RIZWAN GO RIDES</h1>
+<p>Choose Your Language / अपनी भाषा चुनें</p>
+</header>
+
+<div class="container">
+
+<button onclick="setLanguage('en')">English</button>
+<button onclick="setLanguage('hi')">हिन्दी</button>
+
+</div>
+
+<div id="bookingSection" class="container hidden">
+
+<h2 id="formTitle">Book Your Ride</h2>
+
+<form action="https://formsubmit.co/rizwangorides@gmail.com" method="POST">
+
+<label id="nameLabel">Name</label>
+<input type="text" name="name" required>
+
+<label id="dateLabel">Select Date</label>
+<input type="date" name="date" required>
+
+<label id="pickupLabel">Pick Up Location</label>
+<input type="text" name="pickup" required>
+
+<label id="dropLabel">Destination</label>
+<input type="text" name="destination" required>
+
+<label id="timeLabel">Preferred Time</label>
+<input type="time" name="time" required>
+
+<input type="hidden" name="_subject" value="New Ride Booking Request">
+
+<button type="submit" id="submitBtn">Submit Booking</button>
+
+</form>
+
+</div>
+
+<footer>
+
+<p>Contact Person: Mohd Rizwan</p>
+<p>Location: Prayagraj, UP, India</p>
+<p>Phone: 97945 80681</p>
+<p>Email: rizwangorides@gmail.com</p>
+
+</footer>
+
+<script>
+
+function setLanguage(lang){
+
+document.getElementById("bookingSection").classList.remove("hidden")
+
+if(lang === "hi"){
+
+document.getElementById("formTitle").innerText="अपनी सवारी बुक करें"
+document.getElementById("nameLabel").innerText="पूरा नाम"
+document.getElementById("dateLabel").innerText="तारीख चुनें"
+document.getElementById("pickupLabel").innerText="पिकअप स्थान"
+document.getElementById("dropLabel").innerText="गंतव्य स्थान"
+document.getElementById("timeLabel").innerText="समय चुनें"
+document.getElementById("submitBtn").innerText="बुकिंग भेजें"
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
